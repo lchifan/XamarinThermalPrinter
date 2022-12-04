@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinFormsTest.Views.PrintPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Print page! Choose a printer!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Picker
+                ItemsSource="{Binding DeviceList}"
+                Title="Select device"
+                ItemDisplayBinding="{Binding .}"
+                SelectedItem="{Binding SelectedDevice}"
+                 />
+            <!--<Entry 
+                Text="{Binding PrintMsg}"
+                Placeholder="Message to print!"
+                
+                />-->
+            <!--<Editor Text="{Binding PrintMsg}" Keyboard="Plain" AutoSize="TextChanges" MaxLength="180" />-->
+
+            <Editor Text="{Binding PrintMsg, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
+            <StackLayout
+                Orientation="Horizontal">
+                <Button 
+                Text="Print"
+                Command="{Binding PrintCommand}"
+                />
+                <Button 
+                Text="PrintVertical"
+                Command="{Binding PrintVerticalCommand}"
+                />
+            </StackLayout>
+            
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
